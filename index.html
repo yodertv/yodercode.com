@@ -1,0 +1,44 @@
+
+<!doctype html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-sanitize.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-route.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="DynamicTree.js"></script>
+    <script type="text/javascript" src="slider/ng-slider.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="slider/css/ng-slider.min.css">
+    <title>DynamicTree v1.3</title>
+  </head>
+  <body ng-app="dyTree" ng-controller="TreeCtrl">
+    <div>
+        <span>
+          <form ng-submit="makeTree()">
+              <input class="btn-primary" type="submit" style="float:left" value="DrawTree">
+          </form> 
+          <form ng-submit="clearTree()">
+              <input class="btn-primary" type="submit" style="float:left" value="ClearTree">
+          </form>
+          <h2 style="text-align: center; margin-bottom: 10;">DynamicTree v1.3</h2>
+        </span>
+    </div>
+      <!-- For debuging tree functions
+      <div>
+      <p>leftWidthFactor = {{leftWidthFactor}}, rightWidthFactor = {{rightWidthFactor}}</p>
+      <p>leftLenghtFactor = {{leftLenghtFactor}}, rightLengthFactor = {{rightLengthFactor}}</p>
+      <hr>
+      </div>
+      -->
+    <div>
+      <div style="width:200px; float:left">
+          <div ng-repeat="treeVar in treeVars">
+            <p>{{treeVar.text}} value is: {{treeVar.value}}</p>
+            <input ng-model="treeVar.value" type="text" id="{{$index}}" slider options="treeVar.options"></input>
+            <hr>
+          </div>
+      </div>
+    </div>
+    <canvas id="canvas" width="1000" height="600"></canvas>  
+  </body>
+</html>
