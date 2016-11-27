@@ -1,60 +1,28 @@
-
 <!doctype html>
-<html>
+<html lang="en">
   <head>
-    <!--script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-sanitize.min.js"></script>
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
 
-    <script src="angular.min.js"></script>
-    <script src="angular-sanitize.min.js"></script>
-    <script src="jquery-latest.js"></script>
+    <title>YCD</title>
+    <link href="./index.css" rel="stylesheet">
 
-    <script src="DynamicTree.js"></script>
-    <script type="text/javascript" src="slider/ng-slider.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="slider/css/ng-slider.min.css">
-    <title>DynamicTree v1.4</title>
   </head>
-  <body ng-app="dyTree" ng-controller="TreeCtrl" style="background-color:#B8B894;">
-    <div id="header" style="background-color:#B8B894;">
-        <span>
-          <form ng-submit="makeTree()">
-              <input class="btn-primary" type="submit" style="float:left" value="DrawTree">
-          </form> 
-          <form ng-submit="clearTree()">
-              <input class="btn-primary" type="submit" style="float:left" value="ClearTree">
-          </form>
-          <form ng-submit="toggleAutoDraw()">
-              <input class="btn-primary" type="submit" style="float:left" value="AutoDraw">
-          </form>
-          <input type="checkbox" style="float:left" ng-model="autoDraw"></input>
-          <h2 style="text-align: center; margin-bottom: 0;">DynamicTree v1.4</h2>
-        </span>
-    </div>
-      <!-- For debuging tree functions
-      <div>
-      <p>leftWidthFactor = {{leftWidthFactor}}, rightWidthFactor = {{rightWidthFactor}}</p>
-      <p>leftLenghtFactor = {{leftLenghtFactor}}, rightLengthFactor = {{rightLengthFactor}}</p>
-      <hr>
-      </div>
-      -->
-    <div>
-      <div style="width:180px; float:left; background-color:#B8B894;">
-          <div ng-repeat="treeVar in treeVars" style="background-color:#B8B894;">
-            <br>
-            <p>{{treeVar.name}} value is: {{treeVar.value}}</p>
-            <input ng-model="treeVar.value"  type="text" id="{{$index}}" slider options="treeVar.options"></input>
-          </div>
-          <hr style="margin-bottom:10px">
-          <p> Load from catalog: </p>
-          <div ng-repeat="tree in treeCatalog" style="background-color:#B8B894;">
-            <form ng-submit="setCurrentTreeVars($index)">
-              <input class="btn-primary" type="submit" style="float:left" value="{{tree.name}}">
-            </form>
-          </div>
-          <br>
-      </div>
-    </div>
-    <canvas id="canvas" width="1100" height="800" style="margin:8px;"></canvas>  
+
+  <body>
+    <h1>Yoder Code Work Product</h1>
+    <button type="button" > <img src="./dytree.png" alt="Tree Image"><br>
+    <span>Dynamic Tree 1.4</span>
+    </button>
+    <button type="button" > <img src="./RemindersApp.png" alt="Reminders Image"><br>
+    <span>Reminders 0.5.5</span>
+    </button>
+    <a href="./DynamicTree.html">Dynamic Tree App</a><p>
+    <a href="https://github.com/yodertv/DynamicTree#dynamic-tree">Dynamic Tree Readme</a><p>
+    <a href="https://github.com/yodertv/Reminders#reminders">Reminders Readme</a><p>
+    <a href="https://todos-55911.onmodulus.net/welcome">Reminders App</a><p>
+    <a href="mailto:yodercode@gmail.com">Contact Yoder Code</a><p>
+    <span>Copyright 2016 Yoder Code</span>
   </body>
 </html>
