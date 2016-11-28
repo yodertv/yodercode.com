@@ -7,22 +7,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
     <title>YCD</title>
     <link href="./index.css" rel="stylesheet">
-  </head>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>  </head>
 
   <body>
     <h2>Yoder Code Work Product</h2>
-    <span>
-    <form style="display:inline;" action="https://github.com/yodertv/DynamicTree#dynamic-tree">
-        <button type="submit" > <img src="./dytree.png" alt="Tree Image"><br><span>Dynamic Tree 1.4</span></button>
-    </form>
-    <form style="display:inline;" action="https://github.com/yodertv/Reminders#reminders" target="_parent">
-        <button type="submit"> <img src="./RemindersApp.png" alt="Reminders Image"><br>Reminders 0.5.5</button>
-    </form>
+    <div class="row">
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <img src="./dytree.png" alt="Tree Image">
+          <div class="caption">
+            <h3>Dynamic Fractal Tree</h3>
+            <p>Draws and clears a fractal based tree on a canvas as configured by variables that can be adjusted using sliders.</p>
+            <p><a href="https://github.com/yodertv/DynamicTree#dynamic-tree" class="btn btn-default" role="button">DynamicTree 1.4</a></p>
+          </div>
+        </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <a href=https://github.com/yodertv/Reminders#reminders" class="btn btn-default" role="button">
+            <img src="./RemindersApp.png" alt="Reminders Image">
+              <div class="caption">
+                <h3>Reminders App Example</h3>
+                <p>This cloud hosted app manages a user defined set of task lists. I use it instead of lists kept on paper around the house. Most useful as an example of a fully working cloud hosted Angular / Node / Mongo app.</p>
+            </div>
+      </a>
+      </div>
+      </div>
+    </div>
+
     <form action="mailto:yodercode@gmail.com" target="_blank">
         <button type="submit">Contact Yoder Code</button>
     </form>
-    </span>
-    <br>
     <span id="copyright">Copyright 2016 Yoder Code</span>
   </body>
 
