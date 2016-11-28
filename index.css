@@ -4,6 +4,9 @@ html, body {
   background: linear-gradient(grey, lightgrey);
 }
 
+h2 {
+  text-align: center;
+}
 
 button {
   background: linear-gradient(grey, lightgrey);
