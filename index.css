@@ -1,6 +1,4 @@
 html, body {
-  height: 100%;
-  background-color: grey;
   background: linear-gradient(grey, lightgrey);
 }
 
@@ -8,31 +6,25 @@ h2 {
   text-align: center;
 }
 
-btn {
- background: linear-gradient(grey, lightgrey); 
-}
-
 body {
-  position: absolute;
   margin: 0px;
-  height: 100%;
-  right: 20%;
-  left: 20%;
+  padding-right: 20%;
+  padding-left: 20%;
   font-size: 32px;
 }
 
 @media only screen and (max-width: 975px) {
     body {
-        left:10%;
-        right:10%;
+        padding-left:10%;
+        padding-right:10%;
         font-size: 24px;
     }
 }
 
 @media only screen and (max-width: 675px) {
     body {
-        left:0;
-        right:0;
+        padding-left:0;
+        padding-right:0;
         font-size: 18px;
     }
 }
