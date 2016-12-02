@@ -20,26 +20,12 @@ function TreeCtrl($scope){
 		{name: "RightAlpha", value: "220", options : { from: 5, to: 595, step: 5, dimension: " RightAlpha"  }}, // change ratio for leftside of tree
 		{name: "LeftAngle", value: "19", options : { from: 5, to: 90, step: 2, dimension: " LeftAngle"  }}, // Left branch angle delta
 		{name: "RightAngle", value: "31", options : { from: 0, to: 90, step: 2, dimension: " RightAngle"  }}, // Right branch angle delta
-		{name: "Level", value: "16", options : { from: 1, to: 18, step: 1, dimension: " Level"  }} // Level of recursion
+		{name: "Level", value: "14", options : { from: 1, to: 18, step: 1, dimension: " Level"  }} // Level of recursion
 	];
 
 	$scope.treeVars = angular.copy(defaultTreeVars);
 
 	$scope.autoDraw = true;
-
-/*
-	// Collection version of tree variables (javascrip doesn't preseve order in a collection)
-	$scope.treeVars = {
-		"lean" : { value: "-82", options : { from: -180, to: 0, step: 2, dimension: " Lean" }}, // Initial angle of the trunk
-		"leftAlpha" : { value: "180", options : { from: 5, to: 595, step: 5, dimension: " LeftAlpha" }}, // change ratio for leftside of tree
-		"rightAlpha" : { value: "220", options : { from: 5, to: 595, step: 5, dimension: " RightAlpha" }}, // change ratio for leftside of tree
-		"leftAngle" : { value: "19", options : { from: 5, to: 90, step: 2, dimension: " LeftAngle" }}, // Left branch angle delta
-		"rightAngle" : { value: "31", options : { from: 0, to: 90, step: 2, dimension: " RightAngle" }}, // Right branch angle delta
-		"tLength" : { value: "135", options : { from: 0, to: 250, step: 5, dimension: " Length" }}, // Length of the first stem
-		"tWidth" : { value: "17", options : { from: 0, to: 76, step: 2, dimension: " Width" }}, // Width of the first stem
-		"level" : { value: "16", options : { from: 1, to: 18, step: 1, dimension: " Level" }} // Level of recursion
-	};
-*/
 
 	console.log($scope.treeVars);
 
@@ -49,7 +35,7 @@ function TreeCtrl($scope){
 		{name:"Square", lean:"-90", tLength:"250", tWidth:"35", leftAlpha:"120", rightAlpha:"120", leftAngle:"90", rightAngle:"90", level:"16"},
 		{name:"Bronchial", lean:"-90", tLength:"90", tWidth:"10", leftAlpha:"300", rightAlpha:"300", leftAngle:"33", rightAngle:"33", level:"10"},
 		{name:"Shoot", lean:"-82", tLength:"180", tWidth:"12", leftAlpha:"180", rightAlpha:"10", leftAngle:"30", rightAngle:"0", level:"12"},
-		{name:"Tree with foilage", lean:"-85", tLength:"135", tWidth:"17", leftAlpha:"180", rightAlpha:"220", leftAngle:"19", rightAngle:"31", level:"16"},// Initial default
+		{name:"Tree with foilage", lean:"-85", tLength:"135", tWidth:"17", leftAlpha:"180", rightAlpha:"220", leftAngle:"19", rightAngle:"31", level:"14"},// Initial default
 		{name:"Symetrical", lean:"-90", tLength:"180", tWidth:"26", leftAlpha:"180", rightAlpha:"180", leftAngle:"22", rightAngle:"22", level:"9"},
 		{name:"Lucky bamboo", lean:"-75", tLength:"150", tWidth:"30", leftAlpha:"180", rightAlpha:"25", leftAngle:"15", rightAngle:"80", level:"16"},
 		{name:"Goofy", lean:"-90", tLength:"236", tWidth:"36", leftAlpha:"120", rightAlpha:"240", leftAngle:"48", rightAngle:"85", level:"12"}, // and set rightLengthFactor to equal the left
@@ -58,15 +44,12 @@ function TreeCtrl($scope){
 		{name:"One-sided", lean:"-90", tLength:"135", tWidth:"17", leftAlpha:"180", rightAlpha:"220", leftAngle:"0", rightAngle:"31", level:"12"}
 		];
 
-/*
-	Tumbleweed			-90				135		17		1.8 		2.2 		19			31			16 // Concate angels as strings to delt instead of math.
-	Middle of the Road	-90				125 	50 		3.0 		3.0 		46 			46 			9  // Middle setting for all treeVars
+	/*
+	Tumbleweed			-90			135		17		1.8 		2.2 		19			31		16 // Concate angels as strings to delt instead of math.
+	Middle of the Road	-90			125 	50 		3.0 		3.0 		46 			46 		9  // Middle setting for all treeVars
 	*/
 
 	var deg_to_rad = Math.PI / 180.0;
-	
-	var repeatCounter = 0; // Used for drawing multiple trees on the same canvas.
-	
 	var timerId1 = undefined;
 	var timerId2 = undefined;
 	var timerId3 = undefined;
@@ -131,21 +114,19 @@ function TreeCtrl($scope){
 //			drawTree(x2, y2, width*leftWidthFactor, length*leftLengthFactor, angle - $scope.treeVars.leftAngle, level - 1);
 //			drawTree(x2, y2, width*rightWidthFactor, length*rightLengthFactor, angle + $scope.treeVars.rightAngle, level - 1);
 		}
+		else {
+			drawing = false;
+		}
 	}
 
 	$scope.makeTree = function() {
 
+		if (drawing) return;
 		drawing = true;	
 		calcFactors();
 		console.log("make", lean, angle, length, width, leftAlpha, rightAlpha, leftAngle, rightAngle, level);
-		drawTree(550, 800+(10*repeatCounter), width, length, lean, level);
+		drawTree(400, 800, width, length, lean, level);
 		timerId3 = setTimeout($scope.makeTree, 800);
-		repeatCounter++;
-		if (repeatCounter>0) { 
-			// drawing = false;
-			clearTimeout(timerId3)
-			repeatCounter = 0;
-		};
 	}
 
 	$scope.clearTree = function() {
@@ -180,14 +161,19 @@ function TreeCtrl($scope){
 
 	calcFactors();
 
-	// This works. Notice I'm building the ng expresion by string concatination. This is the array version.
+	// This works to detect a change in values and make a new tree. 
+	// Notice I'm building the ng expresion by string concatination.
 	angular.forEach($scope.treeVars, function(value,key) {
 	  	$scope.$watch('treeVars['+key+'].value' , function(newVal, oldVal) {
-  			if ((newVal !== oldVal) && $scope.autoDraw) {          // Don't start a new drawing while drawing
+    	 	// console.log(key + ' has changed from ' + oldVal + ' to ' + newVal);
+  			// console.log($scope.autoDraw, drawing);
+  			if ((newVal !== oldVal) && $scope.autoDraw && !drawing) {
   				$scope.clearTree();
   				$scope.makeTree();
-	    	 	// console.log(key + ' has changed from ' + oldVal + ' to ' + newVal);
 			}
 	 	});
 	});
+
+	$scope.makeTree(); // Draw the default tree on start-up
+
 }
