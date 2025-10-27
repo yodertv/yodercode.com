@@ -1,78 +1,99 @@
 <!doctype html>
 <html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+  <title>YCD</title>
+  <link rel="shortcut icon" href="./dytree.ico" type="image/x-icon">
+  <link rel="icon" href="img/dytree.ico" type="image/x-icon">
 
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
-    <title>YCD</title>
-    <link rel="shortcut icon" href="./dytree.ico" type="image/x-icon">
-    <link rel="icon" href="img/dytree.ico" type="image/x-icon">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <link href="./index.css" rel="stylesheet">
 
-    <link href="./index.css" rel="stylesheet">
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>  
+</head>
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>  </head>
+<body>
+  <h1>Yoder Code</h1>
 
-  <body>
-    <h2>YoderCode</h2>
-    <div class="row">
-      <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-          <a href="https://github.com/yodertv/DynamicTree#dynamic-tree" class="btn btn-default" role="button" style="white-space: normal;">
-            <img src="./dytree.png" alt="Tree Image">
-              <div class="caption">
-                <h3>Dynamic Fractal Tree</h3>
-                <p>Draws a fractal based tree on an html canvas using variables adjusted by sliders.</p>
-            </div>
-          </a>
-        </div>
-        </div>
-        <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-          <a href="https://github.com/yodertv/Reminders#reminders" class="btn btn-default" role="button" style="white-space: normal;">
-            <img src="./RemindersApp.png" alt="Reminders Image">
-              <div class="caption">
-                <h3>Example Reminders App</h3>
-                <p>This example demonstrates an Angular / Node / Mongo app.</p>
-            </div>
-          </a>
-      </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-          <a href="mailto:yodercode@gmail.com" class="btn btn-default" role="button" style="white-space: normal;">
-            <img src="./contact.jpg" alt="Contact Image">
-              <div class="caption">
-                <h3>Contact YoderCode</h3>
-                <p>Mike (aka yodertv@github) would be happy to hear from you.</p>
-            </div>
-          </a>
-      </div>
-    </div>
-    </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-          <a href="https://github.com/yodertv" target="_blank" class="btn btn-default" role="button" style="white-space: normal;">
-            <img src="./head.jpeg" alt="Github Image">
-              <div class="caption">
-                <h3>yodertv@github</h3>
-                <p>Check out my other projects on Github.</p>
-            </div>
-          </a>
-      </div>
-    </div>
-    </div>
-    <span id="copyright">
-      <p style="float:right;">2016-2024 YoderCode</p>
-      <i style="float:right;padding-right:10px" class="glyphicon glyphicon-copyright-mark"></i>
-  </span>
-  </body>
+  <!-- Use a list for a grid of items (screen readers prefer list semantics) -->
+  <ul class="grid" role="list">
+    <!-- Example item -->
+    <li class="card" aria-labelledby="title-dytree">
+      <!-- anchor wraps the whole card; HTML5 allows block links -->
+      <a href="https://github.com/yodertv/DynamicTree#dynamic-tree" aria-labelledby="title-dytree">
+        <figure>
+          <!-- Use width/height or aspect-ratio and lazy loading to improve performance -->
+          <img src="./dytree.png" alt="Screenshot of a fractal tree drawn on a canvas" loading="lazy"/>
+          <figcaption class="card-body">
+            <h2 id="title-dytree">Dynamic Fractal Tree</h2>
+            <p>Draws a fractal based tree on an HTML canvas using variables adjusted by sliders.</p>
+            <div class="meta">Canvas · Interactive</div>
+          </figcaption>
+        </figure>
+      </a>
+    </li>
+    <!-- Duplicate more items as needed -->
+    <li class="card" aria-labelledby="title-reminders">
+      <a href="https://github.com/yodertv/Reminders#reminders" aria-labelledby="title-reminders">
+        <figure>
+          <img src="./RemindersApp.png" alt="Screenshot of reminders app." loading="lazy">
+          <figcaption class="card-body">
+            <h2 id="title-reminders">Reminders App</h2>
+            <p>This project demonstrates a three tier reminder list maintenance web application.</p>
+            <div class="meta">Demo · Angular · Node · Mongo · JS</div>
+          </figcaption>
+        </figure>
+      </a>
+    </li>
+    <!-- add more items... -->
+    <li class="card" aria-labelledby="title-test-atomic-writes">
+      <a href="https://github.com/yodertv/Reminders#reminders" aria-labelledby="title-test-atomic-writes">
+        <figure>
+          <img src="./test-atomic-writes.png" alt="Screenshot of test-atomic-writes command line output." loading="lazy">
+          <figcaption class="card-body">
+            <h2 id="title-example2">Test Atomic Writes</h2>
+            <p>Test your filesystem's ability to correctly serialize writes as expected in APPEND mode on a POSIX system.</p>
+            <div class="meta">Golang · POSIX · Concurrency</div>
+          </figcaption>
+        </figure>
+      </a>
+    </li>
+    <li class="card" aria-labelledby="title-github-profile">
+      <a href="https://github.com/yodertv" target="_blank" aria-labelledby="title-github-profile">
+        <figure>
+          <img src="./head.jpeg" alt="Profile pitcure image." loading="lazy">
+          <figcaption class="card-body">
+            <h2 id="title-github-profile">yodertv@github</h2>
+            <p>Check out my other projects on Github.</p>
+            <div class="meta">Public · Hobby</div>
+          </figcaption>
+        </figure>
+      </a>
+    </li>
+    <li class="card" aria-labelledby="title-contact">
+      <a href="mailto:yodercode@gmail.com" caria-labelledby="title-contact">
+          <img src="./contact.jpg" alt="Email contact image." loading="lazy">
+          <figcaption class="card-body">
+            <h2 id="title-github-profile">yodertv@github</h2>
+            <p>Check out my other projects on Github.</p>
+            <div class="meta">Email · Contact</div>
+          </figcaption>
+        </figure>
+      </a>
+    </li>
+  </ul>
+
+<span id="copyright">
+  <p style="float:right;">2016-2025 YoderCode</p>
+  <i style="float:right;padding-right:10px" class="glyphicon glyphicon-copyright-mark"></i>
+</span>
+</body>
 
 </html>
